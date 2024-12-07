@@ -26,3 +26,9 @@
 - 跨链 lock 的意义是什么？
 - link token ???
 - to analyse the contracts
+- 基础知识
+  contract A 有 func 1
+  contract B 调用 func1 , 此时 msg.sender 是 contract B's address
+  用户直接调用 func1, 此时 msg.sender 是 user's address
+
+- ccip 怎么验证 wnft 已经被烧掉了？
