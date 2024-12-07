@@ -32,3 +32,18 @@
   用户直接调用 func1, 此时 msg.sender 是 user's address
 
 - ccip 怎么验证 wnft 已经被烧掉了？
+
+- 加密敏感信息
+- npx env-enc set-pw
+  npx env-enc set
+
+- sepolia rpc 和 amoy rpc 使用自己的 alchamy 的 app
+
+- todo:在测试网部署合约（分别使用不同的 tag）
+
+npx hardhat deploy --network sepolia
+• 部署成功后，Hardhat Deploy 会在 deployments/sepolia 文件夹下生成合约地址信息。
+
+ethers.getContract("MyToken", firstAccount) 的作用是通过 Hardhat 的部署机制，在本地 deployments 文件夹 中查找已部署合约的相关信息（例如合约地址、ABI 等），然后通过 ethers 提供的工具生成一个可以直接与合约交互的实例
+
+如果你重复部署了同一个合约（例如名称相同的合约），deployments 文件夹会默认覆盖旧的部署记录，并保留最新的部署地址和相关信息。这是因为 Hardhat 的 hardhat-deploy 插件会以合约的名称为键存储部署数据。
