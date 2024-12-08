@@ -47,3 +47,19 @@ npx hardhat deploy --network sepolia
 ethers.getContract("MyToken", firstAccount) 的作用是通过 Hardhat 的部署机制，在本地 deployments 文件夹 中查找已部署合约的相关信息（例如合约地址、ABI 等），然后通过 ethers 提供的工具生成一个可以直接与合约交互的实例
 
 如果你重复部署了同一个合约（例如名称相同的合约），deployments 文件夹会默认覆盖旧的部署记录，并保留最新的部署地址和相关信息。这是因为 Hardhat 的 hardhat-deploy 插件会以合约的名称为键存储部署数据。
+
+npx env-enc view :
+
+在 source chain 部署合约：
+npx hardhat deploy --tags sourcechain --network sepolia
+
+在 sepolia 部署的合约地址：
+Deploying the nft contract
+deploying "MyToken" (tx: 0xebe448aa8d8609f840c8fa9ddcf81d774446e209b7cdd2335b24084127994136)...: deployed at 0xEE0dE5c623E1Fe54af8F3Ea325f4496013709a9c with 2649530 gas
+MyToken is deployed!
+non local environment: sourcechain router: 0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59, link token: 0x779877A7B0D9E8603169DdbD7836e478b4624789
+NFT address: 0xEE0dE5c623E1Fe54af8F3Ea325f4496013709a9c
+deploying the lmn pool
+deploying "NFTPoolLockAndRelease" (tx: 0xd806f7ca69aa594f8aaf45cca0f45cdeee23db0eb6036541c7485eff58c7664a)...: deployed at 0xe7840833a1e8A0808d452a50BcC6Ba8cA5b16fbA with 2564601 gas
+
+看到 3:07:00
