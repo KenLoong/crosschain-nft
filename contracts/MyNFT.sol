@@ -15,9 +15,9 @@ contract MyToken is
     ERC721Burnable,
     Ownable
 {
-    // todo:这里替换成自己的matadata
+    // 这里替换成自己的matadata
     string public constant METADATA_URI =
-        "ipfs://QmXw7TEAJWKjKifvLE25Z9yjvowWk2NWY3WgnZPUto9XoA";
+        "ipfs://QmTCHayWLPefBVP5GfpGBESft59ZcVtG6eY56tWSR4wZ5W";
     uint256 private _nextTokenId;
 
     constructor(
