@@ -110,7 +110,7 @@ TokenId: 0, Owner is 0x86a1721A01ec828CC612bA1350f0cCDdc651cf09
 npx hardhat check-nft --network sepolia
 ```
 
-输出
+输出,token 0 的 owner 已经是锁定合约了，与 token 1 不一样
 
 ```
 checking status of ERC-721
