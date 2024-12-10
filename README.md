@@ -25,12 +25,14 @@
 当 NFT 被燃烧或锁定时，源链上的智能合约会触发一个事件（如 `Transfer` 或 `Burn` 事件）。这些事件会记录在源链的区块链日志中。(源链上的日志是指相关事件（如燃烧或锁定）的数据会通过交易的形式记录到区块链中。这些日志存储在区块链的交易事件（transaction logs）中，也称为 事件日志 或 事件记录)
 
 2. 验证过程：
+   CCIP 的去中心化验证网络会读取源链上的日志，确认燃烧事件的发生。
+   这些日志会被打包成跨链消息，其中包含：
 
-- CCIP 的去中心化验证网络会读取源链上的日志，确认燃烧事件的发生。
-- 这些日志会被打包成跨链消息，其中包含：
-  - 区块高度
-  - 交易哈希
-  - 事件数据
+   区块高度
+
+   交易哈希
+
+   事件数据
 
 3. 跨链消息的传递
 
@@ -40,26 +42,28 @@
 
 目标链上的智能合约通过以下方式验证跨链消息：
 
-- 检查消息来源是否为可信验证网络。
-- 验证源链事件的默克尔证明，确保事件确实记录在区块链中。
-- 检查事件内容，例如：
-  - NFT ID 是否匹配。
-  - 操作类型是否为“燃烧”或“锁定”。
+检查消息来源是否为可信验证网络。
+
+验证源链事件的默克尔证明，确保事件确实记录在区块链中。
+
+检查事件内容，例如：
+
+NFT ID 是否匹配。
+
+操作类型是否为“燃烧”或“锁定”。
 
 5. 目标链的响应
 
 一旦验证通过，目标链上的跨链智能合约可以执行对应操作：
-
-- 在目标链上铸造与源链 NFT 绑定的 `Wrapped NFT`（WNFT）。
+在目标链上铸造与源链 NFT 绑定的 `Wrapped NFT`（WNFT）。
 
 6. 依赖的关键点
-
-1. **可信的验证网络**  
-   CCIP 的安全性依赖于去中心化预言机网络的名誉和抗攻击能力。
-1. **源链合约的透明性**  
-   确保源链上的合约逻辑明确，并能有效标识燃烧事件。
-1. **消息完整性验证**  
-   通过加密技术（如默克尔树）确保跨链消息的真实性。
+   **可信的验证网络**  
+    CCIP 的安全性依赖于去中心化预言机网络的名誉和抗攻击能力。
+   **源链合约的透明性**  
+    确保源链上的合约逻辑明确，并能有效标识燃烧事件。
+   **消息完整性验证**  
+    通过加密技术（如默克尔树）确保跨链消息的真实性。
 
 通过这种流程，CCIP 确保目标链上的 WNFT 合法，且唯一与源链上的 NFT 挂钩。
 
@@ -76,11 +80,17 @@
 
 1. 下载依赖：`npm install`
 2. 需要设置这 3 个变量，我们来使用
+
    PRIVATE_KEY (私钥，含义不多说)
+
    SEPOLIA_RPC_URL （sepolia rpc 节点 url ,可以去https://www.alchemy.com/网站注册一个账号，创建一个app来获取自己的rpc url，免费的）
+
    AMOY_RPC_URL (同上，依然使用 alchemy)
+
    2.1 设置步骤
+
    npx env-enc set-pw (输入密码)
+
    npx env-enc set （接下来就依次输入 key 和 value）
 
 3. 部署合约到 sepolia
@@ -158,7 +168,7 @@ TokenId: 0, Owner is 0x86a1721A01ec828CC612bA1350f0cCDdc651cf09
 TokenId: 1, Owner is 0x86a1721A01ec828CC612bA1350f0cCDdc651cf09
 ```
 
-6. 锁定 token id = 0 的 nft，进行跨链
+7. 锁定 token id = 0 的 nft，进行跨链
 
 ```sh
 npx hardhat lock-and-cross --tokenid 0 --network sepolia
@@ -179,7 +189,7 @@ NFT locked and crossed, transaction hash is 0x99221770ca922f04eb34e9a4ebf95be6c4
 
 ![crosschain-tx](./img/crosschain-tx.png)
 
-7. 查看 amoy 区块链的 wrapped nft
+8. 查看 amoy 区块链的 wrapped nft
 
 ```sh
 npx hardhat check-wrapped-nft --tokenid 0 --network amoy
@@ -193,7 +203,7 @@ there are 1 tokens under the collection
 TokenId: 0, Owner is 0x86a1721A01ec828CC612bA1350f0cCDdc651cf09
 ```
 
-8. 再查看 sepolia 网络里的 nft
+9. 再查看 sepolia 网络里的 nft
 
 ```sh
 npx hardhat check-nft --network sepolia
