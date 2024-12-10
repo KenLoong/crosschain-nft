@@ -1,0 +1,32 @@
+{
+  "description": "The gaze of Yuki Nagato",
+  "external_url": "https://github.com/KenLoong",
+  "image": "https://olive-deep-roadrunner-649.mypinata.cloud/ipfs/bafkreibt5ritr6cevmzlfyje7nreq5xxz63jh2gagsecusrcyojlaoyrqe",
+  "name": "Yuki",
+  "attributes": [
+    {
+      "trait_type": "Lineage",
+      "value": "Alien"
+    },
+    {
+      "trait_type": "Hair",
+      "value": "Short Hair"
+    },
+    {
+      "trait_type": "Hobby",
+      "value": "Reading"
+    },
+    {
+      "trait_type": "Boss",
+      "value": "Integrated Data Sentient Entity"
+    },
+    {
+      "trait_type": "Ultimate Boss",
+      "value": "Haruhi Suzumiya"
+    },
+    {
+      "trait_type": "Creator",
+      "value": "Warson Loong"
+    }
+  ]
+}
